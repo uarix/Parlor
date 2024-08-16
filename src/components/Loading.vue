@@ -59,12 +59,20 @@ const siteName = import.meta.env.VITE_SITE_NAME;
   height: 100%;  
   z-index: 999;  
   overflow: hidden;  
-  display: flex;  
-  flex-direction: column;  
-  align-items: center;  
-  justify-content: center;  
   background-color: var(--bg);  
   color: var(--fg);  
+
+  .loader {  
+    position: absolute;  
+    top: 50%;  
+    left: 50%;  
+    transform: translate(-50%, -50%);  
+    display: flex;  
+    flex-direction: column;  
+    align-items: center;  
+    z-index: 2;  
+    transition: opacity 0.3s ease-out;  
+  }  
 
   main {  
     padding: 24px 0;  
@@ -82,7 +90,7 @@ const siteName = import.meta.env.VITE_SITE_NAME;
 
   .ip__worm1,  
   .ip__worm2 {  
-    animation: worm1 2s linear infinite;  
+    animation: worm1 0.6s linear infinite;  
   }  
 
   .ip__worm2 {  
@@ -94,7 +102,6 @@ const siteName = import.meta.env.VITE_SITE_NAME;
     flex-direction: column;  
     align-items: center;  
     color: var(--fg);  
-    z-index: 2;  
     margin-top: 20px;  
     font-size: 24px;  
     .tip {  
@@ -107,10 +114,12 @@ const siteName = import.meta.env.VITE_SITE_NAME;
   .loader-section {  
     position: fixed;  
     top: 0;  
-    width: 51%;  
-    height: 100%;  
-    background: var(--bg);  
+    width: 50%;  
+    height: 100%;
+    backdrop-filter: blur(5px);  
+    background-color: rgba(255, 255, 255, 0.041);
     z-index: 1;  
+    transition: transform 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);  
     &.section-left {  
       left: 0;  
     }  
@@ -121,22 +130,19 @@ const siteName = import.meta.env.VITE_SITE_NAME;
 
   &.loaded {  
     visibility: hidden;  
-    transform: translateY(-100%);  
-    transition:  
-      transform 0.3s 1s ease-out,  
-      visibility 0.3s 1s ease-out;  
-    main, .loader-text {  
+    transition: visibility 0s 1s;  
+
+    .loader {  
       opacity: 0;  
       transition: opacity 0.3s ease-out;  
     }  
+
     .loader-section {  
       &.section-left {  
         transform: translateX(-100%);  
-        transition: transform 0.5s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);  
       }  
       &.section-right {  
         transform: translateX(100%);  
-        transition: transform 0.5s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);  
       }  
     }  
   }  
@@ -161,9 +167,7 @@ const siteName = import.meta.env.VITE_SITE_NAME;
 }  
 
 @keyframes worm1 {  
-  from {  
-    stroke-dashoffset: 0;  
-  }  
+  from { stroke-dashoffset: 0; }  
   50% {  
     animation-timing-function: steps(1);  
     stroke-dashoffset: -358;  
@@ -172,20 +176,12 @@ const siteName = import.meta.env.VITE_SITE_NAME;
     animation-timing-function: linear;  
     stroke-dashoffset: 358;  
   }  
-  to {  
-    stroke-dashoffset: 0;  
-  }  
+  to { stroke-dashoffset: 0; }  
 }  
 
 @keyframes worm2 {  
-  from {  
-    stroke-dashoffset: 358;  
-  }  
-  50% {  
-    stroke-dashoffset: 0;  
-  }  
-  to {  
-    stroke-dashoffset: -358;  
-  }  
+  from { stroke-dashoffset: 358; }  
+  50% { stroke-dashoffset: 0; }  
+  to { stroke-dashoffset: -358; }  
 }  
-</style>
+</style> 
