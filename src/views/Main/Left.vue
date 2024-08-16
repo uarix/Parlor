@@ -1,3 +1,4 @@
+<!-- 主页 → 左侧信息 -->
 <template>
   <div :class="store.mobileOpenState ? 'left hidden' : 'left'">
     <Message />

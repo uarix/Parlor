@@ -1,3 +1,4 @@
+<!-- 悬浮层 → 更多设置 -->
 <template>
   <div class="set" @mouseenter="closeShow = true" @mouseleave="closeShow = false" @click.stop>
     <transition name="el-fade-in-linear">
@@ -84,7 +85,7 @@ const upData = reactive({
 });
 
 // 跳转源代码仓库
-const jumpTo = (url) => {
+const jumpTo = (url) => {//箭头函数写法
   window.open(url);
 };
 </script>

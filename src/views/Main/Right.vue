@@ -1,3 +1,4 @@
+<!-- 主页 → 右侧信息 -->
 <template>
   <div :class="store.mobileOpenState ? 'right' : 'right hidden'">
     <!-- 移动端 Logo -->
