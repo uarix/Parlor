@@ -116,7 +116,7 @@ const siteName = import.meta.env.VITE_SITE_NAME;
     top: 0;  
     width: 50%;  
     height: 100%;
-    backdrop-filter: blur(5px);  
+    backdrop-filter: blur(10px);  
     background-color: rgba(255, 255, 255, 0.041);
     z-index: 1;  
     transition: transform 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);  
@@ -137,7 +137,8 @@ const siteName = import.meta.env.VITE_SITE_NAME;
       transition: opacity 0.3s ease-out;  
     }  
 
-    .loader-section {  
+    .loader-section {
+      backdrop-filter: blur(0);
       &.section-left {  
         transform: translateX(-100%);  
       }  
