@@ -66,12 +66,12 @@ const closeShow = ref(false);
 const siteUrl = computed(() => {
   const url = import.meta.env.VITE_SITE_URL;
   if (!url) throw new Error("VITE_SITE_URL is not configured.");
-  // 判断协议前缀
-  if (url.startsWith("http://") || url.startsWith("https://")) {
+  // 如果url是以http://或https://开头的，就去掉这个前缀
+  if (url.startsWith("http://") || url.startsWith("https://")) { 
     const urlFormat = url.replace(/^(https?:\/\/)/, "");
     return urlFormat.split(".");
   }
-  return url.split(".");
+  return url.split(".");//对于immsy.top就直接做split
 });
 
 // 更新日志
