@@ -81,7 +81,7 @@ const imgLoadError = () => {
 
 // 监听壁纸切换
 watch(
-  () => store.coverType,
+  () => store.coverType,// 函数：监听的数据
   (value) => {
     changeBg(value);
   },
