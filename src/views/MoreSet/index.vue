@@ -71,7 +71,7 @@ const siteUrl = computed(() => {
     const urlFormat = url.replace(/^(https?:\/\/)/, "");
     return urlFormat.split(".");
   }
-  return url.split(".");//对于immsy.top就直接做split
+  return url.split("."); // 对于immsy.top就直接做split
 });
 
 // 更新日志
