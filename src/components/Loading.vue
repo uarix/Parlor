@@ -36,8 +36,10 @@
         <span class="tip"> 加载中 </span>
       </div>
     </div>
-    <div class="loader-section section-left" />
-    <div class="loader-section section-right" />
+    <div v-if="!isMobile">
+      <div class="loader-section section-left" />
+      <div class="loader-section section-right" />
+    </div>
   </div>
 </template>
 
@@ -48,6 +50,16 @@ const store = mainStore();
 
 // 配置
 const siteName = import.meta.env.VITE_SITE_NAME;
+
+const isMobile = ref(false);
+
+onMounted(() => {
+  // 对于移动端小屏，不显示左右开幕的加载遮罩
+  if (window.matchMedia("(max-width: 768px)").matches) {
+    isMobile.value = true;
+  }
+});
+
 </script>
 
 <style lang="scss" scoped>  
