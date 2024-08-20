@@ -81,7 +81,7 @@ const upData = reactive({
     "音乐歌单支持快速自定义",
     "壁纸支持个性化设置",
     "音乐播放器支持音量控制",
-    "Test GPG key again"
+    "Test GPG key again again"
   ],
   fix: ["修复天气 API", "时光胶囊显示错误", "移动端动画及细节", "图标更换为 IconPark"],
 });
