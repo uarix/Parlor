@@ -50,15 +50,7 @@ const startYear = ref(
 );
 const siteIcp = ref(import.meta.env.VITE_SITE_ICP);
 const siteAuthor = ref(import.meta.env.VITE_SITE_AUTHOR);
-const siteUrl = computed(() => {
-  const url = import.meta.env.VITE_SITE_URL;
-  if (!url) throw new Error("VITE_SITE_URL is not configured.");
-  // 判断协议前缀
-  if (!url.startsWith("http://") && !url.startsWith("https://")) {
-    return "//" + url;
-  }
-  return url;
-});
+const siteUrl = ref("//" + import.meta.env.VITE_SITE_URL);
 </script>
 
 <style lang="scss" scoped>
